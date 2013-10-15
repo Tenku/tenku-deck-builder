@@ -2,6 +2,35 @@
  * Created by Tenku on 10/14/13.
  */
 public class Card implements Comparable {
+    private String name;
+    private String text;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Card(String name) {
+        this.name = name;
+    }
+
+    public Card(String name, String text) {
+        this.name = name;
+        this.text = text;
+    }
+
+
     /**
      * Compares this object with the specified object for order.  Returns a
      * negative integer, zero, or a positive integer as this object is less
@@ -42,6 +71,16 @@ public class Card implements Comparable {
      */
     @Override
     public int compareTo(Object o) {
-        return 0;
+        if(o == null)
+            throw new NullPointerException("Cannot compare to null object");
+        else if( o instanceof  Card)
+            return this.name.compareToIgnoreCase(o.toString());
+        else
+            throw new ClassCastException("Can only compare to other cards!");
+    }
+
+    @Override
+    public String toString(){
+        return name;
     }
 }
