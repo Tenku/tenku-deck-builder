@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -5,7 +6,18 @@ import java.util.Iterator;
  * Created by Tenku on 10/14/13.
  */
 public class Deck<E> implements Collection {
+    private Collection<E> cards;
+    private String name;
 
+    public Deck(String name) {
+       this.name = name;
+       this.cards = new ArrayList<E>();
+    }
+
+    public Deck(Collection<E> cards, String name) {
+        this.cards = cards;
+        this.name = name;
+    }
 
     /**
      * Returns the number of elements in this collection.  If this collection
@@ -16,7 +28,7 @@ public class Deck<E> implements Collection {
      */
     @Override
     public int size() {
-        return 0;
+        return cards.size();
     }
 
     /**
@@ -26,7 +38,7 @@ public class Deck<E> implements Collection {
      */
     @Override
     public boolean isEmpty() {
-        return false;
+        return cards.isEmpty();
     }
 
     /**
@@ -47,7 +59,7 @@ public class Deck<E> implements Collection {
      */
     @Override
     public boolean contains(Object o) {
-        return false;
+        return cards.contains(o);
     }
 
     /**
@@ -60,7 +72,7 @@ public class Deck<E> implements Collection {
      */
     @Override
     public Iterator iterator() {
-        return null;
+        return cards.iterator();
     }
 
     /**
@@ -81,7 +93,7 @@ public class Deck<E> implements Collection {
      */
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        return cards.toArray();
     }
 
     /**
@@ -103,7 +115,7 @@ public class Deck<E> implements Collection {
      * the invariant that a collection always contains the specified element
      * after this call returns.
      *
-     * @param e element whose presence in this collection is to be ensured
+     * @param o element whose presence in this collection is to be ensured
      * @return <tt>true</tt> if this collection changed as a result of the
      * call
      * @throws UnsupportedOperationException if the <tt>add</tt> operation
@@ -119,7 +131,7 @@ public class Deck<E> implements Collection {
      */
     @Override
     public boolean add(Object o) {
-        return false;
+        return cards.add((E) o);
     }
 
     /**
@@ -144,7 +156,7 @@ public class Deck<E> implements Collection {
      */
     @Override
     public boolean remove(Object o) {
-        return false;
+        return cards.remove(o);
     }
 
     /**
@@ -173,7 +185,7 @@ public class Deck<E> implements Collection {
      */
     @Override
     public boolean addAll(Collection c) {
-        return false;
+        return cards.addAll(c);
     }
 
     /**
@@ -185,7 +197,7 @@ public class Deck<E> implements Collection {
      */
     @Override
     public void clear() {
-
+        cards.clear();
     }
 
     /**
@@ -212,7 +224,7 @@ public class Deck<E> implements Collection {
      */
     @Override
     public boolean retainAll(Collection c) {
-        return false;
+        return cards.retainAll(c);
     }
 
     /**
@@ -240,7 +252,7 @@ public class Deck<E> implements Collection {
      */
     @Override
     public boolean removeAll(Collection c) {
-        return false;
+        return cards.removeAll(c);
     }
 
     /**
@@ -263,7 +275,7 @@ public class Deck<E> implements Collection {
      */
     @Override
     public boolean containsAll(Collection c) {
-        return false;
+        return cards.containsAll(c);
     }
 
     /**
@@ -309,7 +321,7 @@ public class Deck<E> implements Collection {
      * @throws NullPointerException if the specified array is null
      */
     @Override
-    public T[] toArray(Object[] a) {
-        return new T[0];
+    public E[] toArray(Object[] a) {
+        return (E[]) cards.toArray(a);
     }
 }
