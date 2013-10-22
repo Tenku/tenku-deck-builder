@@ -5,7 +5,7 @@ import java.util.Iterator;
 /**
  * Created by Tenku on 10/14/13.
  */
-public class Deck<E> implements Collection {
+public class Deck<E> implements Collection, Shuffler {
     private Collection<E> cards;
     private String name;
 
@@ -323,5 +323,10 @@ public class Deck<E> implements Collection {
     @Override
     public E[] toArray(Object[] a) {
         return (E[]) cards.toArray(a);
+    }
+
+    @Override
+    public E[] shuffle() {
+        return (E[]) cards.toArray();
     }
 }
