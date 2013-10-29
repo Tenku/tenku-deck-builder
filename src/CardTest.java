@@ -1,3 +1,4 @@
+import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,7 +9,6 @@ import org.junit.Test;
 public class CardTest {
     @Before
     public void setUp() throws Exception {
-
     }
 
     @After
@@ -18,11 +18,16 @@ public class CardTest {
 
     @Test
     public void testGetName() throws Exception {
+        Card test = new Card("Boot");
+        Assert.assertEquals("Boot", test.getName());
 
     }
 
     @Test
     public void testSetName() throws Exception {
+        Card test = new Card("Shoe");
+        test.setName("Boot");
+        Assert.assertEquals("Boot", test.getName());
 
     }
 

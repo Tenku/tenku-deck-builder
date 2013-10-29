@@ -8,7 +8,7 @@ public interface Shuffler<E> {
 
     /**
      * Shuffles the elements of a collection and stores the result in an array.
-     * @return An arry of shuffled elements of the collection.
+     * @return An array of shuffled elements of the collection.
      */
     public E[] shuffle();
 
